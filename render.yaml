@@ -1,10 +1,7 @@
 services:
   - type: web
-    name: your-service-name
+    name: irp-recarga-bits  # Substitua por um nome de serviço relevante
     env: php
     plan: free
     buildCommand: ""
-    startCommand: "php -S 0.0.0.0:1000"
-    envVars:
-      - key: PORT
-        value: "1000"
+    startCommand: "php -S 0.0.0.0:$PORT -t C:/xampp/htdocs/abc"
