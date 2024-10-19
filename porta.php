@@ -1,12 +1,13 @@
 <?php
-// Define a porta
-$port = getenv('PORT') ?: 3000; // Usa 3000 como padrão se a variável de ambiente PORT não estiver definida
-$host = '0.0.0.0';
-$address = "$host:$port";
+$port = 1000; // Definindo a porta
 
-// Exibe o endereço do servidor
-echo "Servidor rodando em: $address\n";
+// Inicie o servidor PHP na porta especificada
+exec("php -S 0.0.0.0:$port", $output, $return_var);
 
-// Inicia o servidor PHP embutido
-// Você pode usar a função `exec` para rodar o comando
-exec("php -S $address");
+// Mostra o resultado da execução
+if ($return_var !== 0) {
+    echo "Erro ao iniciar o servidor: " . implode("\n", $output);
+} else {
+    echo "Servidor iniciado na porta $port.";
+}
+?>
