@@ -5,3 +5,6 @@ services:
     plan: free
     buildCommand: ""
     startCommand: "php -S 0.0.0.0:$PORT -t C:/xampp/htdocs/abc"
+    envVars:
+      - key: PORT
+        value: "10000"  # Mantenha a mesma porta que você definiu no .env
