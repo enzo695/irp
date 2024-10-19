@@ -1,13 +1,12 @@
 <?php
-$port = getenv('PORT') ?: 8080; // Pega a variável de ambiente PORT ou usa 8080 como padrão
-$host = '0.0.0.0'; // Define o host
+// Define a porta
+$port = getenv('PORT') ?: 3000; // Usa 3000 como padrão se a variável de ambiente PORT não estiver definida
+$host = '0.0.0.0';
+$address = "$host:$port";
 
-// Código para iniciar seu servidor
-// Exemplo: servidor HTTP simples
-$server = new \Swoole\Http\Server($host, $port);
-$server->on('request', function ($request, $response) {
-    // Lógica de tratamento de requisições
-});
+// Exibe o endereço do servidor
+echo "Servidor rodando em: $address\n";
 
-$server->start();
-?>
+// Inicia o servidor PHP embutido
+// Você pode usar a função `exec` para rodar o comando
+exec("php -S $address");
