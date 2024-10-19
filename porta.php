@@ -1,13 +1,7 @@
 <?php
-$port = 1000; // Definindo a porta
+$host = '0.0.0.0';
+$port = 1000; // Defina a porta diretamente
 
-// Inicie o servidor PHP na porta especificada
-exec("php -S 0.0.0.0:$port", $output, $return_var);
-
-// Mostra o resultado da execução
-if ($return_var !== 0) {
-    echo "Erro ao iniciar o servidor: " . implode("\n", $output);
-} else {
-    echo "Servidor iniciado na porta $port.";
-}
+// Inicia o servidor PHP
+exec("php -S $host:$port");
 ?>
